@@ -66,6 +66,8 @@ class _ImplicitAnimationsExampleState extends State<ImplicitAnimationsExample> {
                 duration: _animationDuration,
                 width: _width,
                 height: _height,
+                transform: Matrix4.identity()..rotateZ(_angle),
+                transformAlignment: FractionalOffset.center,
                 alignment: Alignment.center,
                 margin: EdgeInsets.all(_margin),
                 decoration: BoxDecoration(
@@ -103,7 +105,11 @@ class _ImplicitAnimationsExampleState extends State<ImplicitAnimationsExample> {
               height: 20,
             ),
             CustomButton(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  _angle = _randomValue();
+                });
+              },
               label: ' Rotate 🔁',
             ),
             SizedBox(
